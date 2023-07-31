@@ -1,0 +1,36 @@
+<div class="whole">
+    <div class="header">
+        <h1>Masterpiece</h1>
+        <!-- <p-button styleClass="p-button-danger" label="Test" (onClick)="activateTest()"></p-button> -->
+    </div>
+    <div class="main">
+        <app-player-list *ngIf="!isGameStart" 
+            (playerList)="loadPlayersAndStartGame($event)"
+            [boardSpaces]="boardSpaces"
+        ></app-player-list>
+
+        <ng-container *ngIf="isGameStart">
+            <app-player-board-position-display *ngIf="!firstTurn" 
+                size="small"
+                [playerName]="getPrevPlayer().name"
+                playerPos="Previous Player"
+                [message]="boardSpaces[getPrevPlayer().position].description"
+            ></app-player-board-position-display>
+            <app-player-board-position-display
+                size="large" 
+                [playerName]="getCurrentPlayer().name" 
+                playerPos="Current Player"
+                [message]="boardSpaces[getCurrentPlayer().position].description"
+                (endTurnEmitter)="advancePlayerIndices()"
+                (rollDiceEmitter)="rollDiceAndAdvancePlayer()"
+                [isCurrentPlayer]="true"   
+            ></app-player-board-position-display>
+            <app-player-board-position-display 
+                size="small" 
+                [playerName]="getNextPlayer().name" 
+                playerPos="Next Player"
+                [message]="boardSpaces[getNextPlayer().position].description"
+            ></app-player-board-position-display>
+        </ng-container>
+    </div>
+</div>

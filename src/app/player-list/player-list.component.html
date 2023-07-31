@@ -1,0 +1,16 @@
+<div class="player-list-body">
+    <ng-container *ngFor="let player of playerForm.controls; let i = index">
+        <div class="player-list-inputs" [formGroup]="player">
+            <input type="text" pInputText formControlName="name" placeholder="Player Name"/>
+            <p-dropdown [options]="boardSpaces" formControlName="position" optionLabel="description"></p-dropdown>
+            <p-colorPicker formControlName="color"></p-colorPicker>
+        </div>
+    </ng-container>
+    <div class="player-list-buttons">
+        <p-button class="button-margin" styleClass="p-button-secondary" (onClick)="addPlayer()" label="Add Player"></p-button>
+        <p-button class="button-margin" (onClick)="submit()" [disabled]="!isReadyToPlay()" label="Start Game"></p-button>
+        
+    </div>
+    <div *ngIf="!isReadyToPlay()" class="reminder-text">*You need at least 5 players to start the game.</div>
+    
+</div>

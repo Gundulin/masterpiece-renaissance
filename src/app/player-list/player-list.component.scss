@@ -1,0 +1,40 @@
+.player-list-body {
+    size: 100%;
+    padding: 50px;
+}
+
+.player-list-inputs {
+    background-color: antiquewhite;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid goldenrod 2px;
+    display: block;
+    margin: 10px;
+    input[type="text"] {
+        margin: 5px;
+        height: 45px;
+        font-size: 24px;
+        width: 30%;
+    }
+    p-dropdown {
+        margin: 5px;
+        width: 50%;
+    }
+    p-colorPicker {
+        margin: 5px;
+        width: 20%;
+    }
+}
+
+.player-list-buttons {
+    display: inline-block;
+}
+
+.button-margin {
+    margin: 8px;
+}
+
+.reminder-text {
+    color: red;
+    font-weight: bold;
+}

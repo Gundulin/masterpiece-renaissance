@@ -1,0 +1,12 @@
+<div [ngClass]="size">
+    <p-card [header]="playerName" [subheader]="playerPos">
+        <ng-template pTemplate="header">
+            <i class="pi pi-user" style="font-size: 2.5rem"></i>
+        </ng-template>
+        <p class="message">{{ message }}</p>
+        <ng-template *ngIf="isCurrentPlayer" pTemplate="footer">
+            <p-button class="margin-sides align-right" label="Roll Dice" styleClass="p-button-success" (onClick)="rollTheDice()"></p-button>
+            <p-button class="margin-sides align-right" label="End Turn" styleClass="p-button-secondary" (onClick)="endTheTurn()"></p-button>
+        </ng-template>
+    </p-card>
+</div>

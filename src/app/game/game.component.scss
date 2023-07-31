@@ -1,0 +1,25 @@
+.header {
+    padding: 1px;
+    font-size: 48px;
+    color: goldenrod;
+    text-align: center;
+    background-color: antiquewhite;
+    font-family: 'Times New Roman', Times, serif;
+    -webkit-text-stroke: 2px black;
+    border-radius: 2px;
+    border: groove 10px goldenrod;
+    margin: 0 100px 0 100px;
+}
+
+.main {
+    padding: 50px;
+    display: block;
+    height: 1000px;
+}
+
+.whole {
+    // background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Nighthawks_by_Edward_Hopper_1942.jpg/2880px-Nighthawks_by_Edward_Hopper_1942.jpg") no-repeat center center fixed;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+}
