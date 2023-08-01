@@ -82,7 +82,7 @@ export class PlayerListComponent implements OnInit {
   }
 
   isReadyToPlay(): boolean {
-    if (this.playerForm.controls.length > 4) {
+    if (this.playerForm.controls.length > 4 && this.playerForm.valid) {
       return true;
     }
     return false;
