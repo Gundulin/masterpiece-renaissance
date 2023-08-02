@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { BoardSpace, GameService, Player } from '../services/game.service';
 
 @Component({
@@ -6,12 +6,12 @@ import { BoardSpace, GameService, Player } from '../services/game.service';
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss']
 })
-export class GameComponent implements OnInit {
-  isGameStart: boolean = false;
-  nextPlayerIndex: number = 1;
-  prevPlayerIndex: number = 0;
-  currentPlayerIndex: number = 0;
-  firstTurn: boolean = true;
+export class GameComponent {
+  isGameStart = false;
+  nextPlayerIndex = 1;
+  prevPlayerIndex = 0;
+  currentPlayerIndex = 0;
+  firstTurn = true;
 
   players: Player[] = [];
 
@@ -19,10 +19,6 @@ export class GameComponent implements OnInit {
 
   constructor(private gameService: GameService) {
     this.boardSpaces = this.gameService.getBoardSpaces();
-  }
-
-  ngOnInit() {
-    
   }
 
   loadPlayersAndStartGame(players: Player[]): void {
@@ -58,8 +54,12 @@ export class GameComponent implements OnInit {
 
   rollDiceAndAdvancePlayer(): void {
     const player: Player = this.getCurrentPlayer();
+    let boardSpace = this.getBoardSpace(player.position);
+    console.log('previous space: ' + boardSpace.index + '-' + boardSpace.description)
     const newPlayerPos = this.gameService.getPlayerNextPiecePosition(player.position, this.boardSpaces.length);
     player.position = newPlayerPos;
+    boardSpace = this.getBoardSpace(player.position);
+    console.log('new space: ' + boardSpace.index + '-' + boardSpace.description);
   }
 
   initiatePlayerIndicesAndStartGame(): void {
@@ -72,6 +72,29 @@ export class GameComponent implements OnInit {
   activateTest(): void {
     this.loadTestData();
     this.initiatePlayerIndicesAndStartGame();
+  }
+
+  getBoardSpace(index: number): BoardSpace {
+    return this.boardSpaces[index];
+  }
+
+  getCurrentPlayerColor(): string {
+    const player = this.getCurrentPlayer();
+    return player.color ? player.color : 'black';
+  }
+
+  getCurrentPlayerPosition(): number {
+    const player = this.getCurrentPlayer();
+    return player.position ? player.position : 0;
+  }
+
+  getCurrentPlayerBoardSpaceDescription(): string {
+    return this.getBoardSpace(this.getCurrentPlayerPosition()).description;
+  }
+
+  getCurrentPlayerName(): string {
+    const player = this.getCurrentPlayer();
+    return player.name ? player.name : 'Bob Ross';
   }
 
   loadTestData(): void {

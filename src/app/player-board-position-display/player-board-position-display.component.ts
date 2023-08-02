@@ -1,13 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-export interface RolledDiceEmission {
-
-}
-
-export interface EndTurnEmission {
-
-}
-
 @Component({
   selector: 'app-player-board-position-display',
   templateUrl: './player-board-position-display.component.html',
@@ -16,10 +8,10 @@ export interface EndTurnEmission {
 export class PlayerBoardPositionDisplayComponent {
 
   @Input()
-  playerName: string = 'Player Name';
+  playerName = 'Player Name';
 
   @Input()
-  message: string = 'This is the default message';
+  message = 'This is the default message';
 
   @Input()
   size = 'small';
@@ -28,16 +20,16 @@ export class PlayerBoardPositionDisplayComponent {
   color = 'red';
 
   @Input()
-  playerPos: string = 'current player';
+  playerPos = 'current player';
 
   @Input()
-  isCurrentPlayer: boolean = false;
+  isCurrentPlayer = false;
 
   @Output()
-  rollDiceEmitter = new EventEmitter<RolledDiceEmission>;
+  rollDiceEmitter = new EventEmitter;
 
   @Output()
-  endTurnEmitter = new EventEmitter<EndTurnEmission>
+  endTurnEmitter = new EventEmitter;
 
   rollTheDice() {
     this.rollDiceEmitter.emit();
