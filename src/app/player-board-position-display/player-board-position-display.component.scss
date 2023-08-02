@@ -40,6 +40,7 @@
 
 .player-color-display {
     border-radius: 40px;
+    border: ridge goldenrod 2px;
     width: 40px;
     height: 40px;
     display: inline-block;
@@ -58,10 +59,28 @@
 }
 
 .action-button-container {
-    position: relative;
-    left: 80%;
     margin-bottom: 20px;
     p-button {
         margin: 10px 10px 25px 10px;
+        display: inline-block;
     }
+}
+
+.filler {
+    width: 75%;
+    display: inline-block;
+}
+
+.action-button {
+    background-color: burlywood;
+    border: outset goldenrod 5px;
+    display: inline-block;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 20px;
+    margin: 10px;
+}
+
+.action-button:hover {
+    border-style: inset;
 }

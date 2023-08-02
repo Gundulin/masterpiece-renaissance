@@ -7,10 +7,10 @@
         </div>
     </ng-container>
     <div class="player-list-buttons">
-        <p-button class="button-margin" styleClass="p-button-secondary" (onClick)="addPlayer()" label="Add Player"></p-button>
+        <p-button class="button-margin" styleClass="p-button-secondary" (onClick)="addPlayer()" label="+ Add Player"></p-button>
         <p-button class="button-margin" (onClick)="submit()" [disabled]="!isReadyToPlay()" label="Start Game"></p-button>
         
     </div>
-    <div *ngIf="playerForm.controls.length < 5" class="reminder-text">*You need at least 5 players to start the game.</div>
+    <div *ngIf="playerForm.controls.length < 5" class="reminder-text">*You need at least 3 players to start the game.</div>
     
 </div>

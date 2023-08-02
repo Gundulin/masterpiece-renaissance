@@ -17,14 +17,12 @@ export interface BoardSpace {
 })
 export class GameService {
 
-  constructor() { }
-
   /**
    * Rolls a simulated die and returns the result
    * @param numSides number of sides of the die
    * @returns a random number that is greater than 0 and less than or equal to the number of sides on the die
    */
-  rollSidedDie(numSides: number = 6): number {
+  rollSidedDie(numSides = 6): number {
     return Math.floor(Math.random() * numSides) + 1;
   }
 

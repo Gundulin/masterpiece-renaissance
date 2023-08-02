@@ -46,7 +46,7 @@ export class PlayerListComponent implements OnInit {
 
     this.playerForm.push(new FormGroup<PlayerForm>(
       {
-        name: new FormControl<string | null>('', [Validators.minLength(4), Validators.required, Validators.maxLength(24)]),
+        name: new FormControl<string | null>('', [Validators.minLength(3), Validators.required, Validators.maxLength(24)]),
         color: new FormControl<string | null>('blue'),
         position: new FormControl<number | null>(0),
         order: new FormControl<number | null>(order)
@@ -82,7 +82,7 @@ export class PlayerListComponent implements OnInit {
   }
 
   isReadyToPlay(): boolean {
-    if (this.playerForm.controls.length > 4 && this.playerForm.valid) {
+    if (this.playerForm.controls.length > 2 && this.playerForm.valid) {
       return true;
     }
     return false;

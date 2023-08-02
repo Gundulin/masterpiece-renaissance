@@ -4,7 +4,10 @@
         {{ message }}
     </h1>
     <div class="action-button-container">
-        <p-button label="Roll Dice" styleClass="p-button-success" (onClick)="rollTheDice()"></p-button>
-        <p-button label="End Turn" styleClass="p-button-secondary" (onClick)="endTheTurn()"></p-button>
+        <div class="filler"></div>
+        <!-- <p-button label="Roll Dice" styleClass="p-button-success" (onClick)="rollTheDice()"></p-button>
+        <p-button label="End Turn" styleClass="p-button-secondary" (onClick)="endTheTurn()"></p-button> -->
+        <button class="action-button gold-text" (click)="rollTheDice()">Roll Dice</button>
+        <button class="action-button gold-text" (click)="endTheTurn()">End Turn</button>
     </div>
 </div>
