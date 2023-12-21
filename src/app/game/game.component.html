@@ -1,7 +1,9 @@
 <div class="whole">
     <div class="header">
         <h1>Masterpiece</h1>
-        <p-button styleClass="p-button-danger" label="Test" (onClick)="activateTest()"></p-button>
+        <!-- <p-button styleClass="p-button-danger" label="Test" (onClick)="activateTest()"></p-button> -->
+        <app-value-chart *ngIf="isGameStart"></app-value-chart>
+
     </div>
     <div class="main">
         <app-player-list *ngIf="!isGameStart" 

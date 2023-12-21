@@ -12,6 +12,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ButtonModule } from 'primeng/button';
+import { ValueChartComponent } from './value-chart/value-chart.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ButtonModule } from 'primeng/button';
     PlayerListComponent,
     GameComponent,
     PlayerBoardPositionDisplayComponent,
+    ValueChartComponent,
   ],
   imports: [
     BrowserModule,
