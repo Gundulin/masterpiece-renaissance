@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { BoardSpace, Player } from '../services/game.service';
 
 interface PlayerForm {
   name: FormControl<string | null>,
   color: FormControl<string | null>,
-  position: FormControl<number | null>,
+  position: FormControl<BoardSpace| null>,
   order: FormControl<number | null>
 }
 
@@ -48,10 +48,17 @@ export class PlayerListComponent implements OnInit {
       {
         name: new FormControl<string | null>('', [Validators.minLength(3), Validators.required, Validators.maxLength(24)]),
         color: new FormControl<string | null>('blue'),
-        position: new FormControl<number | null>(0),
+        position: new FormControl<BoardSpace | null>({
+          description: 'Private Auction',
+          index: 0
+        } as BoardSpace),
         order: new FormControl<number | null>(order)
       }
     ))
+  }
+
+  removePlayer(index: number): void {
+    this.playerForm.removeAt(index);
   }
 
   getLastPlayerOrder(): number {
@@ -70,7 +77,7 @@ export class PlayerListComponent implements OnInit {
       name: playerForm.name.value,
       color: playerForm.color.value,
       order: playerForm.order.value,
-      position: (playerForm.position.value as unknown as BoardSpace).index
+      position: (playerForm.position.value as unknown as BoardSpace).index // FIXME: the value seems to be the index and is coming out undefined. 
     } as Player;
   }
 
